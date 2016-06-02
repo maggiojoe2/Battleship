@@ -1,11 +1,12 @@
 from board import *
 def play_game():
 	game_over = 'n'
+	ai_hp = 1
 	ai_board = create_game_board()
 	#print_board(ai_board) #FIXME
 
 	user_board = create_board()
-	print('   Here is your game board used for finding battleships: \n')
+	print('   Here is your game board used for finding the AI\'s battleships: \n')
 	print_board(user_board)
 	while game_over != 'y':
 		guess_row = len(ai_board)
@@ -28,10 +29,18 @@ def play_game():
 		if ai_location is not '~':
 			print('\n   Hit!\n')
 			user_board[guess_row][guess_col] = 'X'
+			hp -= 1
 		else:
 			print('\n   Miss\n')
 			user_board[guess_row][guess_col] = 'O'
 		print_board(user_board)
+		print('\n \n') #FIXME
+		print_board(ai_board) #FIXME
+		if ai_hp == 0:
+			print("\n    You win!")
+			break
 		game_over = input('Enter \"y\" to quit: ')
+
+
 
 

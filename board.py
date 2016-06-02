@@ -9,42 +9,57 @@ def create_board():
 	return board
 
 def print_board(board):
-	for row in board:
-		print (" ".join(row))
+	print ('          ',  " ".join(['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']))
+	for i in range(len(board)):
+		print ('        ', i, " ".join(board[i]))
+	# for row in board:
+	# 	p_board.append(row)
+	# p_board.insert(0,['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) #Add numbers
+	# for i in range(len(pboard)): #add row #s
+	# 	if i == 0:
+	# 		p_board[i].insert(0,' ')
+	# 	else:
+	# 		num = str(i - 1)
+	# 		p_board[i].insert(0, num)
+	# for row in p_board:
+	# 	print ("          ", " ".join(row))
+	# return board
+	#for row in board:
+		#print ("          ", " ".join(row))
 
 def rand_boat_5(board):
 	#MUST BE GENERATED FIRST
 	#set the 5 long boat
 	row = randint(0, len(board) - 1)
 	col = randint(0, len(board) - 1)
-	print(row)
-	print(col)
+	#print(row)
+	#print(col)
 	#get random row and col and then check if it fits
 	direction = 0
 	for i in range(4):
 		if i == 0:
 			#check if it fits going right
 			if (col + 5) < len(board):
-				print ('right')
+				# print ('right')
 				direction = 0
 				break
 
 		if i == 1:
 			#check if it fits going down
 			if (row + 5) < len(board):
-				print ('down')
+				# print ('down')
 				direction = 1
 				break
 		if i == 2:
 			#check if it fits going left
 			if (col - 5) >= 0:
-				print('left')
+				# print('left')
 				direction = 2
 				break
 		if i == 3:
 			#check if it fits going up
 			if (row - 5) >= 0:
-				print('up')
+				# print('up')
 				direction = 3
 				break
 	#Check direction and update board
@@ -52,18 +67,18 @@ def rand_boat_5(board):
 		if direction == 0:
 			#right
 			board[row][col + i] = 'C'
-			print ('right')
+			# print ('right')
 		if direction == 1:
 			#down
 			board[row + i][col] = 'C'
-			print ('down')
+			# print ('down')
 		if direction == 2:
 			#left
-			print('left')
+			# print('left')
 			board[row][col - i] = 'C'
 		if direction == 3:
 			#up
-			print('up')
+			# print('up')
 			board[row - i][col] = 'C'
 		#print_board(board)
 
@@ -75,8 +90,8 @@ def rand_boat_4(board):
 	while done != 1:
 		row = randint(0, len(board) - 1)
 		col = randint(0, len(board) - 1)
-		print(row)
-		print(col)
+		# print(row)
+		# print(col)
 		#get random row and col and then check if it fits
 		direction = 0
 		for i in range(4):
@@ -85,7 +100,7 @@ def rand_boat_4(board):
 				if (col + 4) < len(board):
 					for i in range(4):
 						if board[row][col + i] != '~':
-							print('doesnt fit right')
+							# print('doesnt fit right')
 							break
 					else:
 						#print ('right')
@@ -98,7 +113,7 @@ def rand_boat_4(board):
 				if (row + 4) < len(board):
 					for i in range(4):
 						if board[row + i][col] != '~':
-							print('doesnt fit down')
+							# print('doesnt fit down')
 							break
 					else:				
 						#print ('down')
@@ -110,7 +125,7 @@ def rand_boat_4(board):
 				if (col - 4) >= 0:
 					for i in range(4):
 						if board[row][col - i] != '~':
-							print('doesnt fit left')
+							# print('doesnt fit left')
 							break
 					else:				
 						#print('left')
@@ -122,7 +137,7 @@ def rand_boat_4(board):
 				if (row - 4) >= 0:
 					for i in range(5):
 						if board[row][col - i] != '~':
-							print('doesnt fit up')
+							# print('doesnt fit up')
 							break
 					else:				
 						#print('up')
@@ -135,18 +150,18 @@ def rand_boat_4(board):
 		if direction == 0:
 			#right
 			board[row][col + i] = 'B'
-			print ('right')
+			# print ('right')
 		if direction == 1:
 			#down
 			board[row + i][col] = 'B'
-			print ('down')
+			# print ('down')
 		if direction == 2:
 			#left
-			print('left')
+			# print('left')
 			board[row][col - i] = 'B'
 		if direction == 3:
 			#up
-			print('up')
+			# print('up')
 			board[row - i][col] = 'B'
 
 	return board
@@ -157,8 +172,8 @@ def rand_boat_3(board):
 	while done != 1:
 		row = randint(0, len(board) - 1)
 		col = randint(0, len(board) - 1)
-		print(row)
-		print(col)
+		# print(row)
+		# print(col)
 		#get random row and col and then check if it fits
 		direction = 0
 		for i in range(3):
@@ -167,7 +182,7 @@ def rand_boat_3(board):
 				if (col + 3) < len(board):
 					for i in range(3):
 						if board[row][col + i] != '~':
-							print('doesnt fit right')
+							# print('doesnt fit right')
 							break
 					else:
 						#print ('right')
@@ -180,7 +195,7 @@ def rand_boat_3(board):
 				if (row + 3) < len(board):
 					for i in range(3):
 						if board[row + i][col] != '~':
-							print('doesnt fit down')
+							# print('doesnt fit down')
 							break
 					else:				
 						#print ('down')
@@ -192,7 +207,7 @@ def rand_boat_3(board):
 				if (col - 3) >= 0:
 					for i in range(3):
 						if board[row][col - i] != '~':
-							print('doesnt fit left')
+							# print('doesnt fit left')
 							break
 					else:				
 						#print('left')
@@ -204,7 +219,7 @@ def rand_boat_3(board):
 				if (row - 3) >= 0:
 					for i in range(3):
 						if board[row][col - i] != '~':
-							print('doesnt fit up')
+							# print('doesnt fit up')
 							break
 					else:				
 						#print('up')
@@ -217,18 +232,18 @@ def rand_boat_3(board):
 		if direction == 0:
 			#right
 			board[row][col + i] = 'D'
-			print ('right')
+			# print ('right')
 		if direction == 1:
 			#down
 			board[row + i][col] = 'D'
-			print ('down')
+			# print ('down')
 		if direction == 2:
 			#left
-			print('left')
+			# print('left')
 			board[row][col - i] = 'D'
 		if direction == 3:
 			#up
-			print('up')
+			# print('up')
 			board[row - i][col] = 'D'
 
 	return board
@@ -239,8 +254,8 @@ def rand_boat_2(board):
 	while done != 1:
 		row = randint(0, len(board) - 1)
 		col = randint(0, len(board) - 1)
-		print(row)
-		print(col)
+		# print(row)
+		# print(col)
 		#get random row and col and then check if it fits
 		direction = 0
 		for i in range(2):
@@ -249,7 +264,7 @@ def rand_boat_2(board):
 				if (col + 3) < len(board):
 					for i in range(2):
 						if board[row][col + i] != '~':
-							print('doesnt fit right')
+							# print('doesnt fit right')
 							break
 					else:
 						#print ('right')
@@ -262,7 +277,7 @@ def rand_boat_2(board):
 				if (row + 2) < len(board):
 					for i in range(2):
 						if board[row + i][col] != '~':
-							print('doesnt fit down')
+							# print('doesnt fit down')
 							break
 					else:				
 						#print ('down')
@@ -274,7 +289,7 @@ def rand_boat_2(board):
 				if (col - 2) >= 0:
 					for i in range(2):
 						if board[row][col - i] != '~':
-							print('doesnt fit left')
+							# print('doesnt fit left')
 							break
 					else:				
 						#print('left')
@@ -286,7 +301,7 @@ def rand_boat_2(board):
 				if (row - 2) >= 0:
 					for i in range(2):
 						if board[row][col - i] != '~':
-							print('doesnt fit up')
+							# print('doesnt fit up')
 							break
 					else:				
 						#print('up')
@@ -299,18 +314,18 @@ def rand_boat_2(board):
 		if direction == 0:
 			#right
 			board[row][col + i] = 'P'
-			print ('right')
+			# print ('right')
 		if direction == 1:
 			#down
 			board[row + i][col] = 'P'
-			print ('down')
+			# print ('down')
 		if direction == 2:
 			#left
-			print('left')
+			# print('left')
 			board[row][col - i] = 'P'
 		if direction == 3:
 			#up
-			print('up')
+			# print('up')
 			board[row - i][col] = 'P'
 
 	return board
